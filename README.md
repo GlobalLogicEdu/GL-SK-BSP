@@ -24,3 +24,34 @@ mkdir ~/development
 echo "export WORKDIR=~/development" >> ~/.bashrc
 source ~/.bashrc
 ```
+
+## Download BSP
+
+  * Clone project
+```bash
+cd $WORKDIR
+git clone https://github.com/GlobalLogicEdu/GL-SK-BSP.git
+cd GL-SK-BSP
+```
+
+  * Init sub-modules
+```bash
+git submodule update --init
+```
+
+## Building and flashing firmware
+
+  * Go to "blink" sample folder
+```bash
+cd $WORKDIR/GL-SK-BSP/examples/blink/
+```
+
+  * Build firmware
+```bash
+make -j$(nproc)
+```
+
+  * Flash firmware to device. NOTE: starter kit should be powered and CN1 connected to PC
+```bash
+make flash
+```
