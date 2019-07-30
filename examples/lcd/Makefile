@@ -16,53 +16,11 @@
 #
 #
 
-MODULE ?= gl-sk-v1
+NAME = lcd
 
-CC_TYPE ?= gcc
-
-TARGET ?= stm32/f4
-
-OPENCM3_DIR = $(PWD)/../libopencm3
-PROJECT = lcd_$(MODULE)
 CFILES = \
 	$(PWD)/../libopencm3-drivers/helper.c \
 	$(PWD)/../libopencm3-drivers/hd44780.c \
 	src/main.c
 
-OBJS = $(CFILES:.c=.o)
-
-CFLAGS          += -Os -ggdb3
-CFLAGS          += -std=c99
-CPPFLAGS        += -MD
-LDFLAGS         += -static -nostartfiles
-LDLIBS          += -Wl,--start-group -lc -lgcc -lnosys -Wl,--end-group
-
-DEVICE=stm32f407vg
-
-all: lib
-	$(MAKE) firmware
-
-include $(OPENCM3_DIR)/mk/genlink-config.mk
-include $(OPENCM3_DIR)/mk/$(CC_TYPE)-config.mk
-
-.PHONY: lib lib-clean clean firmware all
-
-lib:
-	$(MAKE) -C $(OPENCM3_DIR) TARGETS=$(TARGET)
-
-lib-clean:
-	$(MAKE) -C $(OPENCM3_DIR) TARGETS=$(TARGET) clean
-
-firmware: $(PROJECT).elf $(PROJECT).bin $(PROJECT).hex
-
-flash: |firmware
-	@echo "\\033[1;37;42m--- Flashing $(PROJECT).bin to device ---\\033[0m"
-	$(Q)st-flash --reset --format binary write $(PROJECT).bin 0x8000000
-
-clean: lib-clean
-	$(Q)$(RM) -rf $(PROJECT).*
-	$(Q)$(RM) -rf $(OBJS) $(OBJS:.o=.d)
-	$(Q)$(RM) -rf generated.*.ld
-
-include $(OPENCM3_DIR)/mk/genlink-rules.mk
-include $(OPENCM3_DIR)/mk/$(CC_TYPE)-rules.mk
+include ../common.mk
