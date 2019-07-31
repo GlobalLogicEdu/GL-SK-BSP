@@ -22,7 +22,7 @@ CC_TYPE ?= gcc
 
 TARGET ?= stm32/f4
 
-OPENCM3_DIR = $(PWD)/../libopencm3
+OPENCM3_DIR = ../libopencm3
 PROJECT = $(NAME)_$(MODULE)
 
 OBJS = $(CFILES:.c=.o)

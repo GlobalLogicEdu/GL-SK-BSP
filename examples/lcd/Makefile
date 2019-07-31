@@ -19,8 +19,8 @@
 NAME = lcd
 
 CFILES = \
-	$(PWD)/../libopencm3-drivers/helper.c \
-	$(PWD)/../libopencm3-drivers/hd44780.c \
+	../libopencm3-drivers/helper.c \
+	../libopencm3-drivers/hd44780.c \
 	src/main.c
 
 include ../common.mk
