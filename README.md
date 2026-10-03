@@ -1,7 +1,7 @@
-# BSP for GlobalLogic Starter Kit
+# BSP for GlobalLogic Starter Kit v1
 
 Electrical schematic of board variants:
-  * [V1.1](https://github.com/GlobalLogicEdu/GL-SK-BSP/blob/master/Documentation/Schematic_1.1.pdf)
+  * [PCB-1.1](https://github.com/GlobalLogicEdu/GL-SK-BSP/blob/starter_kit_v1/Documentation/Schematic_1.1.pdf)
 
 ## Prerequisites
 
@@ -16,7 +16,7 @@ sudo apt update
 sudo apt install -y git vim arm-none-eabi-gcc libnewlib-arm-none-eabi minicom build-essential cmake libusb-1.0-0-dev
 ```
 
-  * Install Linux [stlink tools](https://github.com/texane/stlink) using [this manual](https://github.com/texane/stlink/blob/master/doc/compiling.md)
+  * Install Linux [stlink tools](https://github.com/texane/stlink) using [this manual](https://github.com/texane/stlink/blob/starter_kit_v1/doc/compiling.md)
 
   * Create work directory and add it to bash environment as a variable for fast access
 ```bash
@@ -30,7 +30,7 @@ source ~/.bashrc
   * Clone project
 ```bash
 cd $WORKDIR
-git clone https://github.com/GlobalLogicEdu/GL-SK-BSP.git
+git clone https://github.com/GlobalLogicEdu/GL-SK-BSP.git -b starter_kit_v1
 cd GL-SK-BSP
 ```
 
