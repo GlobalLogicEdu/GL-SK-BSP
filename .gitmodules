@@ -1,0 +1,8 @@
+[submodule "external/cmsis/core"]
+	path = external/cmsis/core
+	url = https://github.com/STMicroelectronics/cmsis-core
+	branch = cm33
+[submodule "external/cmsis/device-h5"]
+	path = external/cmsis/device-h5
+	url = https://github.com/STMicroelectronics/cmsis-device-h5
+	branch = main
