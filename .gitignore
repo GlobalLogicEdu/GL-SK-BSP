@@ -1,0 +1,7 @@
+*.swp
+*.d
+*.o
+generated.*.ld
+*.elf
+*.hex
+*.bin
